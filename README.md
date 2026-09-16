@@ -1,6 +1,6 @@
 # Food Security Interviews: Hybrid Anonymization Pipeline (spaCy + GLiNER + LLM)
 
-Automatic anonymization of Spanish (es-MX) interview transcripts from a food security study.
+Automatic anonymization of Spanish interview transcripts from a food security study.
 The pipeline detects sensitive named entities (people `PERSONA`, places `LUGAR` and
 organizations `ORGANIZACION`) with two NER models, merges and filters their candidates,
 asks a local LLM (via Ollama) to confirm or reject each one, and finally replaces every confirmed
@@ -48,9 +48,6 @@ entity in the original text with a numbered placeholder such as `[PERSONA_4]`.
 │   ├── 04_merge_filter.ipynb
 │   ├── 05_llm_refinement.ipynb
 │   ├── 06_anonimization_texts.ipynb
-│   ├── GroundTruth.ipynb          # lexical evaluation against annotations
-│   ├── elim_parrafos.ipynb        # LLM-only extraction experiment
-│   └── Fine_Tunning.ipynb         # GLiNER fine-tuning
 ├── src/
 │   ├── ner/
 │   │   ├── spacy_ner.py           # SpacyNER, DocumentResult
@@ -133,7 +130,7 @@ Runs `GlinerNER` with the labels `['persona', 'lugar', 'organizacion']`.
 | Parameter | Value |
 |---|---|
 | `GLINER_MODEL` | `urchade/gliner_multi_pii-v1` (or the fine-tuned checkpoint) |
-| `THRESHOLD` | `0.40` to `0.55` (calibrated in §3 of the notebook) |
+| `THRESHOLD` | `0.55` (calibrated in §3 of the notebook) |
 | `chunk_size` | 300 |
 
 Secondary labels (`pais`, `avenida`, `universidad`, `secretaria`) are mapped back to the three
