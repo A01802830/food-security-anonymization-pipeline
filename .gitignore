@@ -1,0 +1,25 @@
+# Sensitive data
+data/
+*.txt
+!requirements.txt
+
+# Models
+models/
+checkpoints/
+*.bin
+*.safetensors
+*.pt
+
+# Python / Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+
+# Scratch and OS files
+tempCodeRunnerFile*
+desktop.ini
+.DS_Store
+Thumbs.db
